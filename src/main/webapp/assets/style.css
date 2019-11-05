@@ -4,3 +4,13 @@ div {
     padding-bottom: 30px;
     padding-left: 30px;
 }
+
+#borderless {
+    border: 0px;
+}
+
+.border th, .border td {
+    border: 1px solid black;
+    padding: 5px;
+}
+

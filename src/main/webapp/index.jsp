@@ -5,11 +5,11 @@
 <div>
     <table>
         <thead>
-        <tr>
+        <tr class="border">
             <th>Tytuł zadania</th>
             <th>Autor rozwiązania</th>
             <th>Data dodania</th>
-            <th></th>
+            <th id="borderless"></th>
         </tr>
         </thead>
         <tbody>
@@ -17,11 +17,11 @@
         <!-- FOR EACH -->
 
         <c:forEach items="${recentSolutions}" var="solution" varStatus="loopStatus">
-            <tr>
+            <tr class="border">
                 <td>${solutionsExercises[loopStatus.count - 1].title}</td>
                 <td>${solutionsUsers[loopStatus.count - 1].username}</td>
                 <td>${solution.created}</td>
-                <td><a href="#">Szczegóły</a></td>
+                <td><a href="${pageContext.request.contextPath}/solution?id=${solution.id}">Szczegóły</a></td>
             </tr>
         </c:forEach>
 
