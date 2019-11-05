@@ -23,6 +23,9 @@ public class SolutionDao {
     private static final String FIND_ALL_SOLUTION_QUERY =
             "SELECT * FROM solution";
 
+    private static final String FIND_RECENT_SOLUTION_QUERY =
+            "SELECT * FROM solution ORDER BY updated DESC LIMIT ?";
+
     private static final String FIND_ALL_BY_USER_QUERY =
             "SELECT * FROM solution WHERE users_id = ?";
 
@@ -107,6 +110,28 @@ public class SolutionDao {
         try (Connection connection = DbUtil.getConnection()) {
             Solution[] solutions = new Solution[0];
             PreparedStatement statement = connection.prepareStatement(FIND_ALL_SOLUTION_QUERY);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Solution solution = new Solution();
+                solution.setId(resultSet.getInt("id"));
+                solution.setCreated(resultSet.getDate("created"));
+                solution.setUpdated(resultSet.getDate("updated"));
+                solution.setDescription(resultSet.getString("description"));
+                solution.setExercise_id(resultSet.getInt("exercise_id"));
+                solution.setUsers_id(resultSet.getInt("users_id"));
+                solutions = addToArray(solution, solutions);
+            }
+            return solutions;
+        } catch (SQLException e) {
+            e.printStackTrace(); return null;
+        }
+    }
+
+    public Solution[] findRecent(int number) {
+        try (Connection connection = DbUtil.getConnection()) {
+            Solution[] solutions = new Solution[0];
+            PreparedStatement statement = connection.prepareStatement(FIND_RECENT_SOLUTION_QUERY);
+            statement.setInt(1, number);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 Solution solution = new Solution();
