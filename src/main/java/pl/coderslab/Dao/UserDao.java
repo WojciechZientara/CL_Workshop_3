@@ -27,7 +27,7 @@ public class UserDao {
             "SELECT * FROM users";
 
     private static final String FIND_ALL_BY_GROUP_QUERY =
-            "SELECT * FROM users WHERE groupId = ?";
+            "SELECT * FROM users WHERE group_id = ?";
 
     public User create(User user) {
         try (Connection connection = DbUtil.getConnection()) {
