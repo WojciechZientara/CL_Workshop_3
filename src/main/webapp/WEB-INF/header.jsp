@@ -16,8 +16,8 @@
         <div>
             <table>
                 <tr>
-                    <td><a href = "#">Strona główna</a></td>
-                    <td><a href = "#">Grupy</a></td>
+                    <td><a href = "${pageContext.request.contextPath}/">Strona główna</a></td>
+                    <td><a href = "${pageContext.request.contextPath}/groups">Grupy</a></td>
                     <td><a href = "#">Panel administratora</a></td>
                 </tr>
             </table>

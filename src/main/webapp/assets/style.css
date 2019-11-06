@@ -7,10 +7,15 @@ div {
 
 #borderless {
     border: 0px;
+    background: #FFFFFF;
 }
 
 .border th, .border td {
     border: 1px solid black;
     padding: 5px;
 }
+
+th {background: #888888}
+tr:nth-child(odd) {background: #FFFFFF;}
+tr:nth-child(even) {background: #CCCCCC;}
 
