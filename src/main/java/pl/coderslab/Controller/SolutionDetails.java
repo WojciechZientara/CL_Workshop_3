@@ -19,6 +19,10 @@ public class SolutionDetails extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int solutionId = Integer.parseInt(request.getParameter("id"));
+        if (request.getParameter("userId") != null) {
+            int userId = Integer.parseInt(request.getParameter("userId"));
+            request.setAttribute("userId", userId);
+        }
         SolutionDao solutionDao = new SolutionDao();
         Solution solution = solutionDao.read(solutionId);
 

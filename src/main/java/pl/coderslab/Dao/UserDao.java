@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class UserDao {
 
     private static final String CREATE_USER_QUERY =
-            "INSERT INTO users(username, email, password) VALUES (?, ?, ?)";
+            "INSERT INTO users(username, email, password, group_id) VALUES (?, ?, ?, ?)";
 
     private static final String READ_USER_QUERY =
             "SELECT * FROM users WHERE id = ?";
@@ -18,7 +18,7 @@ public class UserDao {
             "SELECT * FROM users WHERE email = ?";
 
     private static final String UPDATE_USER_QUERY =
-            "UPDATE users SET username = ?, email = ?, password = ? where id = ?";
+            "UPDATE users SET username = ?, email = ?, password = ?, group_id = ? where id = ?";
 
     private static final String DELETE_USER_QUERY =
             "DELETE FROM users WHERE id = ?";
@@ -35,6 +35,7 @@ public class UserDao {
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPassword());
+            statement.setInt(4, user.getGroupId());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -60,6 +61,7 @@ public class UserDao {
                 user.setUsername(resultSet.getString("username"));
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
+                user.setGroupId(resultSet.getInt("group_id"));
                 return user;
             }
         } catch (SQLException e) {
@@ -79,6 +81,7 @@ public class UserDao {
                 user.setUsername(resultSet.getString("username"));
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
+                user.setGroupId(resultSet.getInt("group_id"));
                 return user;
             }
         } catch (SQLException e) {
@@ -93,7 +96,8 @@ public class UserDao {
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getPassword());
-            statement.setInt(4, user.getId());
+            statement.setInt(4, user.getGroupId());
+            statement.setInt(5, user.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -127,6 +131,7 @@ public class UserDao {
                 user.setUsername(resultSet.getString("username"));
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
+                user.setGroupId(resultSet.getInt("group_id"));
                 users = addToArray(user, users);
             }
             return users;
@@ -147,6 +152,7 @@ public class UserDao {
                 user.setUsername(resultSet.getString("username"));
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
+                user.setGroupId(resultSet.getInt("group_id"));
                 users = addToArray(user, users);
             }
             return users;
