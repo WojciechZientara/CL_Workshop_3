@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
@@ -16,9 +16,9 @@
         <div>
             <table>
                 <tr>
-                    <td><a href = "${pageContext.request.contextPath}/">Strona główna</a></td>
-                    <td><a href = "${pageContext.request.contextPath}/groups">Grupy</a></td>
-                    <td><a href = "#">Panel administratora</a></td>
+                    <td><a href = "${pageContext.request.contextPath}/">Strona główna</a>&nbsp;&nbsp;</td>
+                    <td><a href = "${pageContext.request.contextPath}/groups">Grupy</a>&nbsp;&nbsp;</td>
+                    <td><a href = "${pageContext.request.contextPath}/panelAdmin">Panel administratora</a></td>
                 </tr>
             </table>
         </div>

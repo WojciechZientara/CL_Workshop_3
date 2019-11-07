@@ -15,7 +15,11 @@ div {
     padding: 5px;
 }
 
-th {background: #888888}
+.colorless {
+    background: #FFFFFF;
+}
+
+th {background: #999999}
 tr:nth-child(odd) {background: #FFFFFF;}
 tr:nth-child(even) {background: #CCCCCC;}
 
