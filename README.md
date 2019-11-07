@@ -1,6 +1,8 @@
 # szkola_programowania
 
-Java servlets
-JSP + JSTL
-DAO
-MySQL DB
+Prosta aplikacja do zarządzania użytkownikami, grupami użytkowników, zadaniami i ich rozwiązaniami <br><br>
+
+Java servlets <br>
+JSP + JSTL <br>
+DAO <br>
+MySQL DB <br>
