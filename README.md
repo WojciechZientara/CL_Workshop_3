@@ -1,6 +1,6 @@
-# szkola_programowania
+# Programming school
 
-Prosta aplikacja webowa do zarządzania użytkownikami, grupami użytkowników, zadaniami i ich rozwiązaniami <br><br>
+A simple web application to manage users, groups of users, exercises and their solutions.<br><br>
 
 Java servlets <br>
 JSP + JSTL <br>
